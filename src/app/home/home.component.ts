@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  emps:any;
+  emps=[];
   constructor(private service: DataService, private route:ActivatedRoute) 
   {
 
@@ -19,9 +19,16 @@ export class HomeComponent implements OnInit {
   ngOnInit() 
   {
     var resultobservable=this.service.select();
-    resultobservable.subscribe((data)=>
+    resultobservable.subscribe((response)=>
     {
-      this.emps=data;
+      if(response['status']==='success')
+      {
+        this.emps= response['data'] as any[];
+      }
+      else
+      {
+        console.log("error", response['error'])
+      }  
     })
   }
 
