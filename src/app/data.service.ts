@@ -13,7 +13,7 @@ export class DataService {
 
   select()
   {
-    return this.http.get("http://localhost:9898/showdata");
+    return this.http.get("http://172.18.5.190:9898/showdata");
   }
 
 }
