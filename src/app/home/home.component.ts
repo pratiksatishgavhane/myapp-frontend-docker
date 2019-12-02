@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
     {
       if(response['status']==='success')
       {
+        console.log(response);
         this.emps= response['data'] as any[];
       }
       else
